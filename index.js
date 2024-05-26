@@ -2,8 +2,7 @@ const restify = require('restify')
 const mongoose = require('mongoose')
 const configuracao = require('./config/index')
 const corsMiddleware = require('restify-cors-middleware')
-const fs = require('fs')
-//const fs = require('node:fs')
+//const fs = require('fs')
 
 // //Configura o ssl local
 // const sslOptions = {
@@ -16,11 +15,11 @@ mongoose.connect(configuracao.db.uri, configuracao.db.parametros).then(_=> {
         name: configuracao.nome,
         version: configuracao.versao,
         ignoreTrailingSlash: true,
-        http2: {
-			cert: fs.readFileSync("./config/keys/certificate.pem"),
-			key: fs.readFileSync("./config/keys/key.pem"),
-			allowHTTP1: true
-		}
+        // http2: {
+		// 	cert: fs.readFileSync("./config/keys/certificate.pem"),
+		// 	key: fs.readFileSync("./config/keys/key.pem"),
+		// 	allowHTTP1: true
+		// }
         //Configura o ssl local
         // httpsServerOptions: { 
         //     pfx: sslOptions.certificate,
